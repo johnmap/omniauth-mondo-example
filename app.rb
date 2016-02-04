@@ -1,7 +1,10 @@
+require "dotenv"
 require "sinatra/base"
 require "rack-flash"
 require "omniauth"
 require "omniauth-mondo"
+
+Dotenv.load
 
 class App < Sinatra::Base
   enable :sessions

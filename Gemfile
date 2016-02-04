@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "dotenv"
 gem "sinatra"
 gem "rack-flash3"
 gem "omniauth"
