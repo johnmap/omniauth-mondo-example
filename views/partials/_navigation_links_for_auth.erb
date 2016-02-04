@@ -1,0 +1,5 @@
+<% if session[:account_id] %>
+  <li><a href="/auth/signout">Sign out</a></li>
+<% else %>
+  <li><a href="/auth/mondo">Sign in</a></li>
+<% end %>

@@ -1,0 +1,6 @@
+<% if flash.has?(:success) %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <div id="flash-success"><%= flash[:success] %></div>
+  </div>
+<% end %>
