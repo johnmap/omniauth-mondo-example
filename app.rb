@@ -23,6 +23,7 @@ class App < Sinatra::Base
   get "/auth/mondo/callback" do
     auth = env["omniauth.auth"]
     session[:account_id] = auth[:uid]
+    session[:account_name] = auth[:info][:name]
 
     # create a user, and store the oauth tokens for future use and refreshing
 

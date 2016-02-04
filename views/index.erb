@@ -1,3 +1,11 @@
 <div class="jumbotron">
   <h1>Welcome</h1>
 </div>
+
+<div>
+  <% if session[:account_name] %>
+    <p>Hello <strong><%= session[:account_name] %></strong></p>
+  <% else %>
+    <p>Please sign in.</p>
+  <% end %>
+</div>
