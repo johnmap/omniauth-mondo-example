@@ -12,7 +12,8 @@ class App < Sinatra::Base
 
   use OmniAuth::Builder do
     provider :mondo, ENV["MONDO_KEY"], ENV["MONDO_SECRET"], {
-      :provider_ignores_state => true
+      :provider_ignores_state => true # this is needed because we don't use the state param
+                                      # and it'll cause a CSRF error
     }
   end
 
