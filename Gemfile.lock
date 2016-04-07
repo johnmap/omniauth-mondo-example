@@ -1,11 +1,27 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (4.0.2)
+      i18n (~> 0.6, >= 0.6.4)
+      minitest (~> 4.2)
+      multi_json (~> 1.3)
+      thread_safe (~> 0.1)
+      tzinfo (~> 0.3.37)
+    atomic (1.1.14)
     dotenv (2.1.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     hashie (3.4.3)
+    i18n (0.7.0)
     jwt (1.5.1)
+    minitest (4.7.5)
+    mondo (0.5.0)
+      money
+      multi_json (~> 1.10)
+      oauth2 (~> 1.0)
+    money (6.7.0)
+      i18n (>= 0.6.4, <= 0.7.0)
+      sixarm_ruby_unaccent (>= 1.1.1, < 2)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -33,13 +49,19 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sixarm_ruby_unaccent (1.1.1)
+    thread_safe (0.1.3)
+      atomic
     tilt (2.0.2)
+    tzinfo (0.3.38)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   dotenv
+  mondo
   omniauth
   omniauth-mondo
   rack-flash3

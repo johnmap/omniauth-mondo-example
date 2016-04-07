@@ -1,10 +1,11 @@
-<div class="jumbotron">
-  <h1>Welcome</h1>
-</div>
-
 <div>
   <% if session[:account_name] %>
     <p>Hello <strong><%= session[:account_name] %></strong></p>
+    <p>
+      Get your csv using the URL pattern: <code>/csv/[yyyy]/[mm]/</code>
+      where [yyyy] is 4-digit year and [mm] is two-digit month.
+    </p>
+    <p>(should probably at least put some links or dropdowns here)</p>
   <% else %>
     <p>Please sign in.</p>
   <% end %>

@@ -3,6 +3,7 @@ require "sinatra/base"
 require "rack-flash"
 require "omniauth"
 require "omniauth-mondo"
+require_relative "lib/mondo2csv"
 
 Dotenv.load
 
@@ -23,10 +24,10 @@ class App < Sinatra::Base
 
   get "/auth/mondo/callback" do
     auth = env["omniauth.auth"]
+    
     session[:account_id] = auth[:uid]
     session[:account_name] = auth[:info][:name]
-
-    # create a user, and store the oauth tokens for future use and refreshing
+    session[:token] = auth[:credentials][:token]
 
     flash[:success] = "Signed in!"
     redirect "/"
@@ -42,4 +43,16 @@ class App < Sinatra::Base
     flash[:success] = "Signed out!"
     redirect "/"
   end
+  
+  get "/csv/:year/:month" do
+    
+    date_formatted = params['year'].to_s + '-' + params['month'].to_s
+    
+    response.headers['Content-Type'] = 'text/csv'
+    response.headers['Content-Disposition'] = "attachment; filename=#{date_formatted}mondo2csv.csv"
+    
+    Mondo2CSV.new(params['year'], params['month'], session[:token]).csv
+    
+  end
+  
 end
